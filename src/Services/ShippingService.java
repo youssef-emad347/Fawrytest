@@ -21,8 +21,8 @@ public class ShippingService {
             totalWeight += weight;
         }
         if(totalWeight >= 1000) {
-            totalWeight = totalWeight/1000;
-            System.out.println("Total package weight " + totalWeight +"kg");
+            double totalWeight1 = totalWeight/1000;
+            System.out.println("Total package weight " + totalWeight1+"kg");
         }
         else System.out.println("Total package weight" + totalWeight+"g");
         return totalWeight;

@@ -24,7 +24,7 @@ public class Main {
 
         Product scratchCard = new Product("Scratch Card", 50, 20);
 
-        Customer customer = new Customer("Youssef", 1000);
+        Customer customer = new Customer("Youssef", 5000);
 
         Cart cart = new Cart();
         cart.add(cheese, 2);        // 2 × 100 = 200
@@ -45,7 +45,7 @@ public class Main {
 
 
         double totalWeight = ShippingService.ship(c.getShippableItems());
-        float shippingFees = (float) (totalWeight * 0.3); //fees is 0.3$ for gram
+        float shippingFees = (float) (totalWeight * 0.05); //fees is 0.3$ for gram
         float subtotal = c.subtotal();
         float total = shippingFees + subtotal;
 

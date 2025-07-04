@@ -7,6 +7,7 @@ import model.Product;
 import model.ShippableProduct;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,15 +36,7 @@ public class Main {
 
     }
     public static void checkout(Customer m , Cart c){
-
-//        for(ExpirableProduct i:c.getExpirableItems()){
-//            if(i.getExpiryDate().isBefore(LocalDate.now())){
-//                System.out.println(i.getName() + " is expired");
-//                return;
-//            }
-//        }
-
-
+        isExpire(c.getExpirableItems());
         double totalWeight = ShippingService.ship(c.getShippableItems());
         float shippingFees = (float) (totalWeight * 0.05); //fees is 0.3$ for gram
         float subtotal = c.subtotal();
@@ -64,6 +57,14 @@ public class Main {
         System.out.println("Shipping      "+shippingFees);
         System.out.println("Amount        "+total);
 
+    }
+    public static <T extends ExpirableShippableProduct> void isExpire(List<T> list){
+        for(T i:list){
+            if(i.getExpiryDate().isBefore(LocalDate.now())){
+                System.out.println(i.getName() + " is expired");
+                return;
+            }
+        }
     }
 }
 

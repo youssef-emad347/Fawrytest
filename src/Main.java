@@ -35,12 +35,13 @@ public class Main {
 
     }
     public static void checkout(Customer m , Cart c){
-        for(ExpirableProduct i:c.getExpirableItems()){
-            if(i.getExpiryDate().isBefore(LocalDate.now())){
-                System.out.println(i.getName() + " is expired");
-                return;
-            }
-        }
+
+//        for(ExpirableProduct i:c.getExpirableItems()){
+//            if(i.getExpiryDate().isBefore(LocalDate.now())){
+//                System.out.println(i.getName() + " is expired");
+//                return;
+//            }
+//        }
 
 
         double totalWeight = ShippingService.ship(c.getShippableItems());

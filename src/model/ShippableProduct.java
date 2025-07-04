@@ -6,6 +6,7 @@ public class ShippableProduct extends Product implements Shippable{
     public ShippableProduct(String name, float price, int quantity,double weight) {
         super(name, price, quantity);
         this.weight = weight;
+        setShippable(true);
     }
 
     public double getWeight() {

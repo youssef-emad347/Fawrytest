@@ -10,6 +10,8 @@ public class ExpirableShippableProduct extends Product implements Expirable,Ship
         super(name, price, quantity);
         this.weight = weight;
         this.expiryDate = LocalDate.parse(expiryDate);
+        setShippable(true);
+        setExpirable(true);
     }
 
     public double getWeight() {

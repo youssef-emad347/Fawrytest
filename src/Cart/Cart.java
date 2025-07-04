@@ -53,21 +53,21 @@ public class Cart {
         return subtotal;
     }
 
-    public List<ShippableProduct> getShippableItems() {
-        List<ShippableProduct> items = new ArrayList<ShippableProduct>();
+    public <T> List<T> getShippableItems() {
+        List<T> items = new ArrayList<T>();
         for (CartItem i : cartItemList) {
-            if (i.getItem() instanceof ShippableProduct) {
-                items.add((ShippableProduct) i.getItem());
+            if (i.getItem().isShippable()) {
+                items.add((T) i.getItem());
             }
         }
         return items;
     }
 
-    public List<ExpirableProduct> getExpirableItems() {
-        List<ExpirableProduct> items = new ArrayList<ExpirableProduct>();
+    public <T> List<T> getExpirableItems() {
+        List<T> items = new ArrayList<T>();
         for (CartItem i : cartItemList) {
-            if (i.getItem() instanceof ExpirableProduct) {
-                items.add((ExpirableProduct) i.getItem());
+            if (i.getItem().isExpirable()) {
+                items.add((T) i.getItem());
             }
         }
         return items;

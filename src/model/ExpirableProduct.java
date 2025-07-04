@@ -7,7 +7,7 @@ public class ExpirableProduct extends Product implements Expirable{
     public ExpirableProduct(String name, float price, int quantity,String expiryDate) {
         super(name, price, quantity);
         this.expiryDate = LocalDate.parse(expiryDate);
-
+        setExpirable(true);
     }
 
     public LocalDate getExpiryDate() {
